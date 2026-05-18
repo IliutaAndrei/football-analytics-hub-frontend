@@ -75,20 +75,50 @@ Built files will be in the `dist/` directory.
 
 ## 🏗️ Project Structure
 
+```
 src/
-├── features/ # Feature-based modules
-│ ├── countries/ # Countries listing
-│ ├── leagues/ # Leagues by country
-│ ├── seasons/ # Season selection
-│ ├── teams/ # Teams listing
-│ ├── standings/ # League standings
-│ ├── fixtures/ # Match fixtures and statistics
-│ └── players/ # Player profiles and statistics
-├── shared/ # Shared components
-│ └── components/ # Navbar, Layout
-├── pages/ # Page components
-├── App.tsx # Main app component
-└── main.tsx # Entry point
+├── features/                    # Feature-based modules
+│   ├── countries/               # Countries listing
+│   │   ├── components/          # CountriesList component
+│   │   ├── hooks/               # useCountries hook
+│   │   └── types/               # Country types
+│   ├── leagues/                 # Leagues by country
+│   │   ├── components/          # LeaguesList component
+│   │   ├── hooks/               # useLeagues hook
+│   │   └── types/               # League types
+│   ├── seasons/                 # Season selection
+│   │   ├── components/          # SeasonsList component
+│   │   └── hooks/               # useSeasons hook
+│   ├── teams/                   # Teams listing
+│   │   ├── components/          # TeamsList, TeamDetails components
+│   │   └── hooks/               # useTeams, useTeam hooks
+│   ├── standings/               # League standings
+│   │   ├── components/          # StandingsList component
+│   │   └── hooks/               # useStandings hook
+│   ├── fixtures/                # Match fixtures and statistics
+│   │   ├── components/          # FixturesList, FixtureStatistics, FixturePlayers
+│   │   └── hooks/               # useFixtures, useFixtureStatistics hooks
+│   ├── statistics/              # Team statistics
+│   │   ├── components/          # StatisticsList component
+│   │   └── hooks/               # useStatistics hook
+│   └── players/                 # Player profiles and statistics
+│       ├── profile/             # Player profile module
+│       ├── statistics/          # Player season statistics
+│       └── squad/               # Squad players by position
+├── shared/                      # Shared components and utilities
+│   └── components/              # Navbar, Layout components
+├── pages/                       # Page components
+│   ├── HomePage.tsx
+│   ├── CountriesPage.tsx
+│   ├── LeaguesPage.tsx
+│   ├── SeasonsPage.tsx
+│   ├── TeamsPage.tsx
+│   ├── StandingsPage.tsx
+│   ├── FixturesPage.tsx
+│   └── ...
+├── App.tsx                      # Main app component with routing
+└── main.tsx                     # Entry point
+```
 
 ## 🎨 Key Pages
 
