@@ -1,73 +1,140 @@
-# React + TypeScript + Vite
+# Football Analytics Hub - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive web application for exploring football statistics, leagues, teams, and player data. Built with React, TypeScript, and Tailwind CSS.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Country & League Browser**: Explore football leagues organized by country
+- **Season Statistics**: View detailed standings, team rankings, and performance metrics
+- **Team Analytics**: Access comprehensive team statistics, squad information, and match history
+- **Player Profiles**: Detailed player statistics including goals, assists, discipline, and match performance
+- **Match Statistics**: In-depth fixture analysis with possession, shots, passes, and player-by-player data
+- **Responsive Design**: Fully optimized for desktop, tablet, and mobile devices
+- **Modern UI**: Clean, professional interface with smooth animations and transitions
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React 18** - UI library
+- **TypeScript** - Type safety
+- **Vite** - Build tool and dev server
+- **Tailwind CSS** - Utility-first styling
+- **React Query (TanStack Query)** - Data fetching and caching
+- **React Router** - Client-side routing
+- **Axios** - HTTP client
 
-## Expanding the ESLint configuration
+## 📋 Prerequisites
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Node.js 18+
+- npm or yarn
+- Backend API running (see [backend repository](https://github.com/IliutaAndrei/football-analytics-hub))
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🔧 Installation
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. Clone the repository
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/IliutaAndrei/football-analytics-hub-frontend.git
+cd football-analytics-hub-frontend
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+3. Create `.env` file in root directory
+
+```env
+VITE_API_BASE_URL=http://localhost:8080/api
+```
+
+4. Start development server
+
+```bash
+npm run dev
+```
+
+The application will be available at `http://localhost:5173`
+
+## 📦 Build
+
+Create production build:
+
+```bash
+npm run build
+```
+
+Preview production build:
+
+```bash
+npm run preview
+```
+
+Built files will be in the `dist/` directory.
+
+## 🏗️ Project Structure
+
+src/
+├── features/ # Feature-based modules
+│ ├── countries/ # Countries listing
+│ ├── leagues/ # Leagues by country
+│ ├── seasons/ # Season selection
+│ ├── teams/ # Teams listing
+│ ├── standings/ # League standings
+│ ├── fixtures/ # Match fixtures and statistics
+│ └── players/ # Player profiles and statistics
+├── shared/ # Shared components
+│ └── components/ # Navbar, Layout
+├── pages/ # Page components
+├── App.tsx # Main app component
+└── main.tsx # Entry point
+
+## 🎨 Key Pages
+
+- **Home** (`/`) - Landing page with feature overview
+- **Countries** (`/countries`) - Browse countries with football leagues
+- **Leagues** (`/leagues/:countryCode`) - View leagues by country
+- **Seasons** (`/leagues/:leagueId/seasons`) - Select season to explore
+- **Teams** (`/leagues/:leagueId/seasons/:seasonYear/teams`) - Browse teams
+- **Standings** (`/leagues/:leagueId/seasons/:seasonYear/standings`) - League table
+- **Fixtures** (`/leagues/:leagueId/seasons/:seasonYear/teams/:teamId/fixtures`) - Team fixtures
+- **Team Details** (`/leagues/:leagueId/seasons/:seasonYear/teams/:teamId`) - Team overview
+- **Squad** (`/teams/:teamId/squad`) - Team squad by position
+- **Player Profile** (`/players/:playerId/profile`) - Player information
+- **Player Statistics** (`/players/:playerId/statistics`) - Season performance stats
+
+## 🎨 Design Features
+
+- **Tailwind CSS** for rapid, consistent styling
+- **Responsive design** with mobile-first approach
+- **Gradient accents** and smooth transitions
+- **Empty states** with helpful messaging
+- **Loading states** with spinners
+- **Error handling** with user-friendly messages
+- **Search functionality** across all list views
+- **Alphabetical grouping** for countries
+- **Type-based grouping** for leagues
+- **Position-based grouping** for squad players
+
+## 🔗 Related Repositories
+
+- [Backend API](https://github.com/IliutaAndrei/football-analytics-hub) - Spring Boot REST API
+
+## 🖼️ Screenshots
+
+_Add screenshots here after deployment_
+
+## 👨‍💻 Author
+
+**Iliuta Andrei**
+
+- GitHub: [@IliutaAndrei](https://github.com/IliutaAndrei)
+
+## 📄 License
+
+This project is part of a university thesis project.
+
+---
+
+Made with ⚽ and ❤️
